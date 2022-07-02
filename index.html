@@ -24,10 +24,11 @@
       </nav>
 
     <div id = 'bottom'>
-        <button class="waves-effect waves-light btn-large"> <i class="material-icons left">description</i> Add Book! </button>
+        <button class="waves-effect waves-light btn-large" id = 'addBookBtn'> <i class="material-icons left">description</i> Add Book! </button>
 
         <div id="popUpForm">
             <form action="/action_page.php" class="formContainer">
+                <label id="cancelBtnLbl"> <button class="waves-effect waves-light btn" id ='cancelBtn'>Cancel <i class="material-icons right">close</i></button></label>
                 <div id="popUpTitle">Add Book!</div>
                 
                 <label class = 'label'>Author</label>
@@ -44,10 +45,8 @@
                     <label><input type="checkbox" /><span></span></label>
                 </div>
 
-                <label class="submitBtn">
-                <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 90%; height:50px">Submit
-                    <i class="material-icons right">send</i>
-                </button>
+                <label id="submitBtn">
+                <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 90%; height:50px">Submit<i class="material-icons right">send</i></button>
                 </label>
             </form>
         </div>
