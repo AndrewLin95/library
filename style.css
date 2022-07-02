@@ -1,0 +1,48 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5em;
+    gap: 2em;
+}
+
+#popUpForm{
+    position: relative;
+    bottom: 5.7em;
+    border: solid black 1px;
+    width: 25em;
+}
+
+.label,
+.inputs,
+#popUpTitle{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 0.3em;
+}
+
+#popUpTitle{
+    margin-top: 1.25em;
+    margin-bottom: 0.75em;
+    font-size: 2.5em;
+}
+
+.label{
+    font-weight: bold;
+}
+
+#checkBox{
+    display:flex;
+    justify-content: center;
+}
+
+.submitBtn{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
