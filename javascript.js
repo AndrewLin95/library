@@ -14,6 +14,7 @@ function Book(author, title, pages, readStatus) {
     this.readStatus = readStatus;
 }
 
+//initialization
 let i = 0;
 addBookToLibrary();
 
@@ -64,12 +65,13 @@ function addBookToLibrary() {
     removeBookBtn.addEventListener('click', () => {
         libraryDiv.removeChild(newCard);
     });
-
     i++;
 }
 
 let aBook = '';
 
+// querySelects the inputs for the form and creates a new variable 'aBook' using the Book constructor. 
+// the newly created 'aBook' gets push to the library array.
 function pullBookInfo(){
     const authorValue = document.querySelector('#author');
     const titleValue = document.querySelector('#title');
@@ -77,11 +79,6 @@ function pullBookInfo(){
     const readStatusCheck = document.querySelector('#readStatus');
     aBook = new Book(authorValue.value, titleValue.value, pagesValue.value, readStatusCheck.checked);
     myLibrary.push(aBook);
-    console.log(aBook.author);
-    console.log(aBook.title);
-    console.log(aBook.pages);
-    console.log(aBook.readStatus);
-    console.table(myLibrary);
 }
 
 function formReset(){
