@@ -36,7 +36,6 @@ function addBookToLibrary() {
 
     //creates the element for the button for the read status. takes the array at position 'i' and toggles the status based on what was inputted
     const newReadStatus = document.createElement('button');
-    newReadStatus.className = 'cardButtons' + ' blue-grey lighten-3' + ' z-depth-1';
     readStatusToggle = myLibrary[i].readStatus;
     newReadStatus.addEventListener('click', () => {
         readStatusToggle = !readStatusToggle
@@ -47,8 +46,10 @@ function addBookToLibrary() {
     function readStatus(){
         if (readStatusToggle){
             newReadStatus.textContent = 'Already Read';
+            newReadStatus.className = 'cardButtons' + ' green lighten-1' + ' z-depth-1';
         } else {
             newReadStatus.textContent = 'Have Not Read Yet';
+            newReadStatus.className = 'cardButtons' + ' blue-grey lighten-3' + ' z-depth-1';
         }
     }
     
