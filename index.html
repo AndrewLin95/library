@@ -27,22 +27,22 @@
         <button class="waves-effect waves-light btn-large" id = 'addBookBtn'> <i class="material-icons left">description</i> Add Book! </button>
 
         <div id="popUpForm">
-            <form action="/action_page.php" class="formContainer">
+            <form id="form" onsubmit="return false">
                 <label id="cancelBtnLbl"> <button class="waves-effect waves-light btn" id ='cancelBtn'>Cancel <i class="material-icons right">close</i></button></label>
                 <div id="popUpTitle">Add Book!</div>
                 
                 <label class = 'label'>Author</label>
-                <label class = 'inputs'><input type= 'text' placeholder = 'Author Name' name = 'author' style="width: 90%" required/></label>
+                <label class = 'inputs'><input type='text' placeholder = 'Author Name' id = 'author' name = 'author' style="width: 90%"/></label>
 
                 <label class = 'label'>Title</label>
-                <label class = 'inputs'><input type = 'text' placeholder = 'Title' name = 'title required' style="width: 90%" required/></label>
+                <label class = 'inputs'><input type='text' placeholder = 'Title' id = 'title' name = 'title required' style="width: 90%"/></label>
 
                 <label class = 'label'>Number of Pages</label>
-                <label class = 'inputs'><input type = 'number' placeholder = 'Number of Pages' min = '0' max = '9999' style="width: 90%; height: 50px;" required/></label>
+                <label class = 'inputs'><input type = 'number' placeholder = 'Number of Pages' id = 'pageNum' min = '0' max = '9999' style="width: 90%; height: 50px;"/></label>
 
                 <div id = 'checkBox'>
                     <label class = 'label'>Have you read it?</label>
-                    <label><input type="checkbox" /><span></span></label>
+                    <label><input type="checkbox" id='readStatus'/><span></span></label>
                 </div>
 
                 <label id="submitBtn">
@@ -51,6 +51,8 @@
             </form>
         </div>
     </div>
+
+    <div id = 'books'></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="javascript.js"></script>
