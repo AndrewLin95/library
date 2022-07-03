@@ -3,9 +3,6 @@ const submitBtn = document.querySelector('#submitBtn');
 const cancelBtn = document.querySelector('#cancelBtn');
 const form = document.querySelector('#form');
 
-
-
-
 let myLibrary = [
     {author: 'J.K. Rowling', title: 'Harry Potter and the Philosopher\'s Stone', pages: '10', readStatus: false,}
 ];
@@ -21,12 +18,14 @@ let i = 0;
 addBookToLibrary();
 
 function addBookToLibrary() {
+    // generate new elements to store the information from the library
+    
     const libraryDiv = document.querySelector('#books');
     const newCard = document.createElement('div');
     const newTitle = document.createElement('h4');
     const newAuthor = document.createElement('div');
     const newPages = document.createElement('div');
-    const newReadStatus = document.createElement('button');
+
 
     libraryDiv.appendChild(newCard);
     newCard.className = 'card number_' + i;
@@ -34,21 +33,40 @@ function addBookToLibrary() {
     newTitle.textContent = myLibrary[i].title;
     newAuthor.textContent = myLibrary[i].author;
     newPages.textContent = 'Total Pages: ' + myLibrary[i].pages;
-    newReadStatus.textContent = myLibrary[i].readStatus;
 
+    //creates the element for the button for the read status. takes the array at position 'i' and toggles the status based on what was inputted
+    const newReadStatus = document.createElement('button');
+    readStatusToggle = myLibrary[i].readStatus;
+    newReadStatus.addEventListener('click', () => {
+        readStatusToggle = !readStatusToggle
+        readStatus();
+    })
+
+    readStatus();
+    function readStatus(){
+        if (readStatusToggle){
+            newReadStatus.textContent = 'Already Read';
+        } else {
+            newReadStatus.textContent = 'Have Not Read Yet';
+        }
+    }
+    
     newCard.appendChild(newTitle);
     newCard.appendChild(newAuthor);
     newCard.appendChild(newPages);
     newCard.appendChild(newReadStatus);
 
+    // create the element for removing card
+    const removeBookBtn = document.createElement('button');
+    removeBookBtn.textContent = 'Remove Book'
+    newCard.appendChild(removeBookBtn);
+
+    removeBookBtn.addEventListener('click', () => {
+        libraryDiv.removeChild(newCard);
+    });
+
     i++;
 }
-
-function createLibraryCard() {
-
-
-}
-
 
 let aBook = '';
 
@@ -66,6 +84,10 @@ function pullBookInfo(){
     console.table(myLibrary);
 }
 
+function formReset(){
+    document.getElementById('form').reset();
+}
+
 addBookBtn.addEventListener('click', () => {
     document.getElementById("popUpForm").style.display = "block";
     document.getElementById("addBookBtn").style.display = "none";
@@ -74,11 +96,14 @@ addBookBtn.addEventListener('click', () => {
 form.addEventListener('submit', () => {
     pullBookInfo();
     addBookToLibrary();  // to do
+    formReset();
     document.getElementById("popUpForm").style.display = "none";
     document.getElementById("addBookBtn").style.display = "block";
 });
 
 cancelBtn.addEventListener('click', () => {     // clear data
+    formReset();
     document.getElementById("popUpForm").style.display = "none";
     document.getElementById("addBookBtn").style.display = "block";
+    return;
 })
