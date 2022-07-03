@@ -27,7 +27,6 @@ function addBookToLibrary() {
     const newAuthor = document.createElement('div');
     const newPages = document.createElement('div');
 
-
     libraryDiv.appendChild(newCard);
     newCard.className = 'card number_' + i;
 
@@ -37,6 +36,7 @@ function addBookToLibrary() {
 
     //creates the element for the button for the read status. takes the array at position 'i' and toggles the status based on what was inputted
     const newReadStatus = document.createElement('button');
+    newReadStatus.className = 'cardButtons' + ' blue-grey lighten-3' + ' z-depth-1';
     readStatusToggle = myLibrary[i].readStatus;
     newReadStatus.addEventListener('click', () => {
         readStatusToggle = !readStatusToggle
@@ -59,6 +59,7 @@ function addBookToLibrary() {
 
     // create the element for removing card
     const removeBookBtn = document.createElement('button');
+    removeBookBtn.className = 'cardButtons' + ' red lighten-2' + ' z-depth-1';
     removeBookBtn.textContent = 'Remove Book'
     newCard.appendChild(removeBookBtn);
 
