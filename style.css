@@ -53,3 +53,21 @@ body{
     justify-content: center;
     margin-bottom: 5%;
 }
+
+/* CSS for newly created cards */
+#books{
+    display:flex;
+    padding:1em;
+    border:black solid 1px;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1.3em;
+    height: 20em;
+    width: 20em;
+}
